@@ -22,6 +22,7 @@ Template.calendar.lastMod = function() {
 }
 
 Template.calendar.rendered = function() {
+  Deps.autorun(function(){
     $('#calendar').fullCalendar({
         dayClick: function(date, jsEvent, view) {
             CalEvents.insert({title: 'New Event', start: date, end: date});
@@ -45,6 +46,7 @@ Template.calendar.rendered = function() {
             callback(events);
         }
     });
+  });
 }
 
 
